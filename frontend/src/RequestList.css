@@ -1,0 +1,192 @@
+/* --- HEADER CỦA BẢNG --- */
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; gap: 10px;
+}
+
+/* --- THANH CÔNG CỤ (Search & Filter) --- */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Làm nền trong suốt để nổi bật dropdown trắng */
+    background: transparent; 
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Khoảng cách giữa chữ Sort by và các dropdown */
+}
+
+/* Nhãn "Sort by:" */
+.sort-label {
+    font-weight: 700;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+/* Nhóm các dropdown */
+.sort-group {
+    display: flex;
+    gap: 10px;
+}
+
+/* --- CUSTOM DROPDOWN STYLES --- */
+.custom-dropdown {
+    position: relative;
+    width: 140px; /* Độ rộng cố định hoặc auto */
+    font-family: 'Inter', sans-serif;
+}
+
+/* Nút kích hoạt Dropdown (Cái hộp trắng) */
+.dropdown-trigger {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px; /* Bo tròn như hình */
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.dropdown-trigger:hover {
+    border-color: #bbb;
+    background-color: #fcfcfc;
+}
+
+/* Mũi tên nhỏ */
+.dropdown-arrow {
+    font-size: 0.7rem;
+    color: #888;
+    margin-left: 8px;
+}
+
+/* Menu xổ xuống */
+.dropdown-menu {
+    position: absolute;
+    top: 110%; /* Cách trigger một chút */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    list-style: none;
+    padding: 5px 0;
+    margin: 0;
+    z-index: 100;
+    overflow: hidden;
+}
+
+/* Từng dòng lựa chọn */
+.dropdown-item {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.dropdown-item:hover {
+    background-color: #f5f5f5; /* Xám nhẹ khi rê chuột */
+}
+
+/* Dòng đang được chọn (Màu xanh dương) */
+.dropdown-item.selected {
+    background-color: #1565C0; /* Màu xanh đậm */
+    color: white;
+    font-weight: 600;
+}
+
+/* --- CÁC PHẦN CŨ (TABLE, BUTTONS) GIỮ NGUYÊN --- */
+.product-table, .user-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+.product-table th, .user-table th {
+    text-align: left;
+    color: #6C757D;
+    font-weight: 600;
+    padding: 0 15px 10px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.product-table td, .user-table td {
+    background-color: #fff;
+    padding: 16px 15px;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+    vertical-align: middle;
+    font-size: 0.95rem;
+}
+
+.product-table tr td:first-child { border-left: 1px solid #f0f0f0; border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
+.product-table tr td:last-child { border-right: 1px solid #f0f0f0; border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
+.product-table tr:hover td { background-color: #fafafa; }
+
+/* Status Badges (Viền outline) */
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+.status-approved, .status-instock { background: transparent; color: #00C851; border-color: #00C851; }
+.status-rejected, .status-outstock { background: transparent; color: #ff4444; border-color: #ff4444; }
+.status-pending { background: transparent; color: #ffbb33; border-color: #ffbb33; }
+
+.add-product-btn {
+    background-color: #FF661A; color: white;
+    padding: 10px 20px; border: none; border-radius: 8px;
+    font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px;
+}
+.add-product-btn:hover { background-color: #e65c00; }
+.toolbar-right .soft-btn { padding: 8px 16px; border-radius: 20px; }
+
+/* --- ICON ACTION BUTTONS (MỚI) --- */
+/* Style cho các nút chỉ có icon, bỏ nền ô vuông */
+.icon-action {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 50%; /* Bo tròn khi hover */
+    transition: background-color 0.2s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+.icon-action:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Hiệu ứng nền mờ khi rê chuột */
+    transform: scale(1.1);
+}
+
+/* Màu sắc riêng cho từng hành động */
+.icon-view { color: #2196F3; }   /* Xanh dương (Xem) */
+.icon-approve { color: #4CAF50; } /* Xanh lá (Duyệt) */
+.icon-reject { color: #F44336; }  /* Đỏ (Từ chối) */
+.icon-edit { color: #FF9800; }    /* Cam (Sửa) */
+.icon-delete { color: #F44336; }  /* Đỏ (Xóa) */
+.icon-qr { color: #333; }         /* Đen (QR Code) */

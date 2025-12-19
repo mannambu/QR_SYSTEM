@@ -1,0 +1,155 @@
+/* --- LAYOUT CHUNG --- */
+.dashboard-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dashboard-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+/* --- STYLE CƠ BẢN CHO THẺ (CARD) --- */
+.dash-card {
+  flex: 1;
+  border-radius: 16px; 
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+  color: #333;
+  border: 1px solid rgba(0,0,0,0.02);
+}
+
+.dash-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* --- LOẠI 1: SOLID CARDS (NỀN MÀU GRADIENT) --- */
+.card-solid {
+  color: white !important;
+  border: none;
+}
+
+.card-solid .dash-card-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 5px;
+  letter-spacing: 0.5px;
+}
+
+.card-solid .dash-card-value {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.card-solid .dash-card-desc {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 20px;
+  min-height: 40px; /* Để căn đều các thẻ */
+}
+
+/* Icon mờ trang trí */
+.dash-card-icon-large {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  opacity: 0.25;
+  transform: scale(1.35);
+  pointer-events: none;
+}
+.dash-card-icon-large svg {
+  width: 80px;
+  height: 80px;
+  fill: white;
+}
+
+/* --- MÀU NỀN GRADIENT --- */
+.bg-blue {
+  background: linear-gradient(135deg, #4481eb 0%, #04befe 100%);
+}
+.bg-green {
+  background: linear-gradient(135deg, #42e695 0%, #3bb2b8 100%);
+}
+.bg-red {
+  background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);
+}
+.bg-orange {
+  background: linear-gradient(135deg, #FF9966 0%, #FF5E62 100%); 
+}
+.bg-purple {
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+}
+
+
+/* --- NÚT HÀNH ĐỘNG TRONG THẺ MÀU --- */
+.card-action-btn {
+  background-color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card-action-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Màu chữ của nút theo màu nền thẻ */
+.text-blue { color: #04befe; }
+.text-green { color: #3bb2b8; }
+.text-orange { color: #FF5E62; }
+.text-purple { color: #8854d0; }
+
+/* --- LOẠI 2: WHITE CARDS (NỀN TRẮNG - Dùng cho hàng dưới) --- */
+.card-white .dash-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.dash-card-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 5px;
+}
+
+.card-white .dash-card-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888; /* Xám nhẹ */
+}
+
+.dash-card-icon-large svg { width: 50px; height: 50px; }
+
+/* Màu icon cho thẻ trắng */
+.icon-approved svg { fill: #2ed8b6; }
+.icon-pending svg { fill: #FFB64D; }
+.icon-rejected svg { fill: #FF5370; }
+.icon-staff svg { fill: #a333c8; }
+.icon-admin svg { fill: #4099ff; }

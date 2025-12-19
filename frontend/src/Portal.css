@@ -1,0 +1,281 @@
+/* --- 1. BIẾN DÙNG CHUNG (VARIABLES) --- */
+:root {
+    --primary-orange: #FF661A;
+    --sidebar-width: 260px; 
+    --bg-light: #F8F9FA; 
+    --text-main: #1A1A1A; 
+    --text-sub: #6C757D; 
+    --card-bg: #FFFFFF;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+}
+
+/* --- 2. GLOBAL RESET & LAYOUT CHÍNH --- */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+}
+
+.portal-layout {
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden; 
+}
+
+/* --- 3. SIDEBAR (THANH BÊN TRÁI) --- */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: #2c3e50; 
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    flex-shrink: 0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+/* --- HEADER MỚI CỦA SIDEBAR --- */
+.sidebar-header {
+    height: 70px; /* Tăng chiều cao một chút cho thoáng */
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 0 20px;
+    background-color: #1a252f;
+    border-bottom: 1px solid #34495e;
+    flex-shrink: 0;
+    gap: 12px; /* Khoảng cách giữa Logo và Chữ */
+}
+
+/* Logo hình vuông */
+.app-logo {
+    width: 32px;
+    height: 32px;
+    background-color: var(--primary-orange);
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+/* Container chứa 2 dòng chữ */
+.brand-container {
+    display: flex;
+    flex-direction: column; /* Xếp dọc: FruitTrace trên, Portal dưới */
+    justify-content: center;
+}
+
+/* Dòng 1: FruitTrace */
+.brand-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+}
+
+/* Dòng 2: Admin/Staff Portal */
+.brand-subtitle {
+    font-size: 0.75rem; /* Chữ nhỏ */
+    color: #b8c7ce; /* Màu xám nhạt */
+    font-weight: 500;
+    text-transform: uppercase; /* Viết hoa toàn bộ */
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+
+/* --- MENU NAVIGATION --- */
+.nav-menu {
+    flex-grow: 1; 
+    overflow-y: auto; 
+    padding: 15px 10px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    color: #b8c7ce; 
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+    border-left: 4px solid transparent;
+}
+
+.nav-item:hover {
+    background-color: #34495e;
+    color: #fff;
+}
+
+.nav-item.active {
+    background-color: #34495e;
+    color: #fff;
+    border-left-color: var(--primary-orange);
+}
+
+.nav-item span:first-child {
+    margin-right: 12px;
+    font-size: 1.1rem;
+    width: 24px;
+    text-align: center;
+}
+
+/* --- USER SECTION (BOTTOM) --- */
+.user-section {
+    padding: 20px;
+    background-color: #1a252f; 
+    border-top: 1px solid #34495e;
+    flex-shrink: 0; 
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.user-avatar {
+    width: 40px; height: 40px;
+    background-color: var(--primary-orange);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-right: 12px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.user-details { display: flex; flex-direction: column; overflow: hidden; }
+.user-details strong { color: #fff; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.user-details span { color: #b8c7ce; font-size: 0.8rem; }
+
+.logout-btn {
+    width: 100%;
+    padding: 8px;
+    background: transparent;
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.2s;
+}
+.logout-btn:hover { background-color: #e74c3c; color: white; }
+
+
+/* --- 4. CONTENT AREA & UI ELEMENTS --- */
+.content-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--bg-light);
+    overflow: hidden;
+}
+
+.content-header {
+    height: 64px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    flex-shrink: 0;
+}
+.content-header h1 { font-size: 1.5rem; color: var(--text-main); margin: 0; }
+.content-header p { font-size: 0.85rem; color: var(--text-sub); margin: 4px 0 0; }
+
+/* .notification-bell {
+    background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #555;
+} */
+
+main {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto; 
+}
+
+.main-content-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    min-height: calc(100vh - 130px);
+}
+
+/* UI Elements */
+.btn-primary {
+    background-color: var(--primary-orange);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.btn-primary:hover { background-color: #e65c00; }
+
+.btn-secondary {
+    background: #fff; border: 1px solid #ccc; color: #333;
+    padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer;
+}
+.btn-secondary:hover { background-color: #f7f7f7; }
+
+.soft-btn {
+    border: none; cursor: pointer; font-weight: 500;
+    display: inline-flex; align-items: center; gap: 6px; justify-content: center;
+    transition: 0.2s;
+}
+.soft-btn.round { border-radius: 20px; padding: 6px 14px; }
+.soft-btn.small { font-size: 0.85rem; padding: 4px 10px; }
+.soft-btn.blue { background: #e3f2fd; color: #1976d2; }
+.soft-btn.green { background: #e8f5e9; color: #2e7d32; }
+.soft-btn.red { background: #ffebee; color: #c62828; }
+
+.modal-overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(2px);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 1000;
+}
+.modal-content, .modal-card, .approval-modal-content {
+    background: #fff; padding: 30px; border-radius: 12px;
+    width: 600px; max-width: 95%; max-height: 90vh; overflow-y: auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); position: relative;
+}
+.modal-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #eee;
+}
+.modal-header h3 { margin: 0; color: #2c3e50; font-size: 1.4rem; }
+.modal-close-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #999; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; }
+
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #555; }
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 10px 12px;
+    border: 1px solid #ddd; border-radius: 8px;
+    background-color: #F7F7F7; font-size: 0.95rem;
+    outline: none; transition: border-color 0.2s;
+}
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--primary-orange); background-color: #fff;
+}
+.form-row { display: flex; gap: 15px; }
+.form-row .form-group { flex: 1; }
+
+.upload-box {
+    border: 2px dashed #ddd; border-radius: 8px; padding: 30px;
+    text-align: center; cursor: pointer; background-color: #fafafa;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.upload-box:hover { border-color: var(--primary-orange); background-color: #fff; }
+.upload-icon { font-size: 2rem; color: #ccc; margin-bottom: 10px; }
