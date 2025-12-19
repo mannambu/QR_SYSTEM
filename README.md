@@ -1,4 +1,4 @@
-# Fruit Trace - Agricultural Traceability System 🍎🔍
+# Fruit Trace - Agricultural Traceability System 
 
 Fruit Trace is a software solution for managing and tracing the origins of agricultural products via QR codes, ensuring transparency from farm to consumer. The system integrates a strict Approval Flow and advanced data management tools.
 
@@ -55,7 +55,7 @@ The project was developed to **digitize the agricultural management process**, a
   - **Approve**
   - **Reject** (with reason)
 
-#### 🛠 System Administration (Admin Only)
+#### System Administration (Admin Only)
 - **User Management**: Add/Remove staff accounts, view user list.
 - **Service Management**:
   - **Backup & Recovery**: Backup/Restore MySQL Database to/from Cloudinary.
@@ -64,7 +64,7 @@ The project was developed to **digitize the agricultural management process**, a
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Backend
 - **Runtime**: Node.js
